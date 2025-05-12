@@ -23,6 +23,8 @@ services:
     restart: unless-stopped
     volumes:
       - growi_data:/data
+    networks:
+      - internal-network
 
   mongo:
     image: mongo:6.0
@@ -35,6 +37,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
+    networks:
+      - internal-network
 
   elasticsearch:
     build:
@@ -57,6 +61,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
+    networks:
+      - internal-network
 
 volumes:
   growi_data:
@@ -67,3 +73,5 @@ volumes:
   mongo_configdb:
   mongo_db:
   es_data:
+networks:
+  - internal-network
