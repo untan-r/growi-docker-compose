@@ -74,4 +74,4 @@ volumes:
   mongo_db:
   es_data:
 networks:
-  - internal-network
+  internal-network: 
